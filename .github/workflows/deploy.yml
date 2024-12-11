@@ -1,0 +1,79 @@
+name: CD
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-on-success:
+    runs-on: ubuntu-24.04
+    environment: production
+    env:
+      AWS_INSTANCE_SG_ID: ${{secrets.SECURITY_GROUP_ID}}
+
+    # 注意前面 workflow_run 的 completed 意思是「完成」，不論執行結果成功或是失敗都算是「完成」
+    # 但是一般來說測試如果失敗就應該暫停部屬至正式環境
+    # 因此這裡加上一個 if 判斷，只有 CI 成功才會執行此 workflow
+    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - run: echo "tests workflow is ${{ github.event.workflow_run.conclusion }}"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 設定AWS證書
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{secrets.AWS_ROLE}}
+          aws-region: ap-northeast-1
+
+      - name: 取得目前 github public ip address
+        id: ip
+        uses: haythem/public-ip@v1.3
+
+      - name: aws 建立 ip 白名單
+        run: |
+          aws ec2 authorize-security-group-ingress \
+            --group-id $AWS_INSTANCE_SG_ID \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+      # 使用 appleboy/ssh-action@master 這個 action 遠端連線至正式環境
+      # https://github.com/appleboy/ssh-action
+      - name: Deployment
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          PROJECT_NAME: clock
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          username: ${{ secrets.SSH_USERNAME }}
+          envs: PROJECT_NAME,CI_ENVIRONMENT,APP_BASEURL,URL_CRM,URL_MEETING,URL_DROPPOINT,URL_PROJECTCOIN,URL_JOBHUNTING,URL_LINKEDIN,URL_CAKE
+          # 執行部屬的指令
+          script: |
+            cd ~/docker/html/$PROJECT_NAME/
+            echo "目前資料夾:$(pwd)"
+            echo '使用 git pull 更新專案，嘗試快進合併，不行則終止當前合併'
+            git pull origin main --ff-only
+            
+
+      - name: aws 移除 ip 白名單
+        run: |
+          aws ec2 revoke-security-group-ingress \
+            --group-id $AWS_INSTANCE_SG_ID \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+  deploy-on-failure:
+    runs-on: ubuntu-24.04
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo "tests workflow is ${{ github.event.workflow_run.conclusion }}"
