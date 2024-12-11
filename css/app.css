@@ -1,0 +1,87 @@
+/*字體*/
+@font-face {
+    font-family: 'Brizel';
+    src: url('../font/Brizel.ttf') format('truetype'), url('../font/Brizel.woff') format('woff');
+}
+
+:root {
+    /*字體大小*/
+    --clock-font-size: 12rem;
+    /*色碼*/
+    --clock-color: #856546;
+    --clock-color-deep: #59432e;
+    --clock-color-deeper: #3b2c1e;
+    --clock-color-light: #c49466;
+    --clock-color-light-shadow: rgba(196,148,102,0.5);
+    --background-color: #212f22;
+    /*時鐘參數 - 本體*/
+    --clock-width: 350px;   /*時鐘寬度*/
+    --clock-height: var(--clock-width); /*時鐘長度*/
+    --clock-scale-height: calc(var(--clock-width) * 0.9);   /*刻度高度*/
+    --center-point: calc(var(--clock-width) / 2);   /*中點位置*/
+    /*時鐘參數 - 秒針*/
+    --second-line-height: calc((var(--clock-width) / 2) * 1.414 - 0.5rem);  /*秒針長度*/
+    /*時鐘參數 - 分針*/
+    --tangle-height: calc((var(--clock-scale-height) / 2) / 2 * 1.732); /*外正三角形高度*/
+    --tangle-bottom: calc(var(--tangle-height) * 1.732);    /*外正三角形底部*/
+    --tangle-in-height: calc((var(--tangle-height) - 1rem));    /*內正三角形高度*/
+    --tangle-in-bottom: calc(var(--tangle-in-height) * 1.732);  /*內正三角形底部*/
+    --tangle-left: calc((var(--clock-width) - (var(--tangle-height) * 2)) / 2); /*分針絕對位置左邊偏移*/
+    --tangle-top: calc((var(--clock-width) - var(--clock-scale-height)) / 2);   /*分針絕對位置上方偏移*/
+    --minute-line-height: calc(var(--clock-scale-height) / 2);  /*分針長度*/
+    /*時鐘參數 - 時針*/
+    --hour-width: var(--minute-line-height);    /*時針正方形寬度*/
+    --hour-height: var(--hour-width);   /*時針正方形高度*/
+    --hour-left: calc((var(--clock-width) - var(--hour-width)) / 2);    /*時針內切圓絕對位置左邊偏移*/
+    --hour-top: calc((var(--clock-height) - var(--hour-height)) / 2);   /*時針內切圓絕對位置上方偏移*/
+    --hour-line-height: calc((var(--hour-width) - 1.2rem) / 2); /*時針長度*/
+    --hour-line-left: calc((var(--hour-width) - 1.7rem) / 2);   /*時針絕對位置左邊偏移*/
+    --minute-transform-origin-y: calc(var(--tangle-bottom) - (var(--hour-height) / 2)); /*時針旋轉軸心偏移*/
+
+    /*動畫起始角度*/
+    --second-animate-start: 0deg;
+    --second-animate-end: 360deg;
+    --minute-animate-start: 0deg;
+    --minute-animate-end: 360deg;
+    --hour-animate-start: 0deg;
+    --hour-animate-end: 360deg;
+}
+
+html {
+    height: 100%;
+}
+/*背景顏色*/
+body {
+    background-color: var(--background-color);
+}
+
+/*設定按鈕字體顏色*/
+#edit {
+    color: var(--clock-color);
+}
+
+/*modal背景顏色*/
+.modal-header, .modal-body, .modal-footer {
+    background-color: var(--clock-color);
+    border-color: var(--clock-color);
+}
+/*modal按鈕顏色*/
+.modal-btn {
+    border-color: var(--clock-color-deep);
+    background-color: var(--clock-color);
+    &:hover, &:active {
+        border-color: var(--clock-color-light) !important;
+        background-color: var(--clock-color-light) !important;
+    }
+    &:focus-visible {
+        border-color: var(--clock-color-light) !important;
+        background-color: var(--clock-color-light) !important;
+        -webkit-box-shadow: 0 0 0 0.25rem var(--clock-color-light-shadow) !important;
+        box-shadow: 0 0 0 0.25rem var(--clock-color-light-shadow) !important;
+    }
+}
+
+/*modal按鈕字體顏色*/
+.fa-color {
+    color: var(--clock-color-deeper);
+}

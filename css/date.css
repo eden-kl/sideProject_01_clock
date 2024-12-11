@@ -1,0 +1,199 @@
+/*日期本體*/
+.date-body {
+    width: var(--clock-width);
+    height: var(--clock-height);
+    background-color: transparent;
+    border-radius: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    @media (min-width: 992px) {
+        margin-bottom: 8rem;
+    }
+}
+/*日期字體顏色與位置*/
+.year, .month, .day {
+    position: absolute;
+    color: var(--clock-color);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: Brizel, serif;
+}
+.year {
+    font-size: calc(var(--clock-font-size) / 2.8);
+    top: 25%;
+    left: 50%;
+}
+.month {
+    font-size: calc(var(--clock-font-size) / 3.2);
+    top: 50%;
+    left: 50%;
+}
+.day {
+    font-size: var(--clock-font-size);
+    top: 75%;
+    left: 50%;
+}
+
+/*外圍*/
+.date-scale {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1px;
+    height: var(--clock-height);
+    background-color: transparent;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background-color: #856546;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background-color: #856546;
+    }
+}
+
+/*外圍旋轉角度*/
+.date-scale:nth-child(1) {
+    -webkit-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+}
+.date-scale:nth-child(2) {
+    -webkit-transform: rotate(9deg);
+    -ms-transform: rotate(9deg);
+    transform: rotate(9deg);
+}
+
+.date-scale:nth-child(3) {
+    -webkit-transform: rotate(21deg);
+    -ms-transform: rotate(21deg);
+    transform: rotate(21deg);
+}
+.date-scale:nth-child(4) {
+    -webkit-transform: rotate(27deg);
+    -ms-transform: rotate(27deg);
+    transform: rotate(27deg);
+}
+.date-scale:nth-child(5) {
+    -webkit-transform: rotate(33deg);
+    -ms-transform: rotate(33deg);
+    transform: rotate(33deg);
+}
+.date-scale:nth-child(6) {
+    -webkit-transform: rotate(39deg);
+    -ms-transform: rotate(39deg);
+    transform: rotate(39deg);
+}
+
+.date-scale:nth-child(7) {
+    -webkit-transform: rotate(51deg);
+    -ms-transform: rotate(51deg);
+    transform: rotate(51deg);
+}
+.date-scale:nth-child(8) {
+    -webkit-transform: rotate(57deg);
+    -ms-transform: rotate(57deg);
+    transform: rotate(57deg);
+}
+.date-scale:nth-child(9) {
+    -webkit-transform: rotate(63deg);
+    -ms-transform: rotate(63deg);
+    transform: rotate(63deg);
+}
+.date-scale:nth-child(10) {
+    -webkit-transform: rotate(69deg);
+    -ms-transform: rotate(69deg);
+    transform: rotate(69deg);
+}
+
+.date-scale:nth-child(11) {
+    -webkit-transform: rotate(81deg);
+    -ms-transform: rotate(81deg);
+    transform: rotate(81deg);
+}
+.date-scale:nth-child(12) {
+    -webkit-transform: rotate(87deg);
+    -ms-transform: rotate(87deg);
+    transform: rotate(87deg);
+}
+.date-scale:nth-child(13) {
+    -webkit-transform: rotate(93deg);
+    -ms-transform: rotate(93deg);
+    transform: rotate(93deg);
+}
+.date-scale:nth-child(14) {
+    -webkit-transform: rotate(99deg);
+    -ms-transform: rotate(99deg);
+    transform: rotate(99deg);
+}
+
+.date-scale:nth-child(15) {
+    -webkit-transform: rotate(111deg);
+    -ms-transform: rotate(111deg);
+    transform: rotate(111deg);
+}
+.date-scale:nth-child(16) {
+    -webkit-transform: rotate(117deg);
+    -ms-transform: rotate(117deg);
+    transform: rotate(117deg);
+}
+.date-scale:nth-child(17) {
+    -webkit-transform: rotate(123deg);
+    -ms-transform: rotate(123deg);
+    transform: rotate(123deg);
+}
+.date-scale:nth-child(18) {
+    -webkit-transform: rotate(129deg);
+    -ms-transform: rotate(129deg);
+    transform: rotate(129deg);
+}
+
+.date-scale:nth-child(19) {
+    -webkit-transform: rotate(141deg);
+    -ms-transform: rotate(141deg);
+    transform: rotate(141deg);
+}
+.date-scale:nth-child(20) {
+    -webkit-transform: rotate(147deg);
+    -ms-transform: rotate(147deg);
+    transform: rotate(147deg);
+}
+.date-scale:nth-child(21) {
+    -webkit-transform: rotate(153deg);
+    -ms-transform: rotate(153deg);
+    transform: rotate(153deg);
+}
+.date-scale:nth-child(22) {
+    -webkit-transform: rotate(159deg);
+    -ms-transform: rotate(159deg);
+    transform: rotate(159deg);
+}
+
+
+.date-scale:nth-child(23) {
+    -webkit-transform: rotate(171deg);
+    -ms-transform: rotate(171deg);
+    transform: rotate(171deg);
+}
+.date-scale:nth-child(24) {
+    -webkit-transform: rotate(177deg);
+    -ms-transform: rotate(177deg);
+    transform: rotate(177deg);
+}

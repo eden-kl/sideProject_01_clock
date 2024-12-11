@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>網頁時鐘</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico"/>
+    <!-- Bootstrap -->
+    <script src="library/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="library/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="library/jquery/jquery-3.7.1.min.js"></script>
+    <!-- awesome icon -->
+    <script src="library/awesome-icon/js/solid.min.js"></script>
+    <link rel="stylesheet" href="library/awesome-icon/css/solid.min.css">
+    <link rel="stylesheet" href="library/awesome-icon/css/fontawesome.min.css">
+    <!-- Customer css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/date.css">
+    <link rel="stylesheet" href="css/clock.css">
+    <!-- Customer js -->
+    <script src="js/clock.js"></script>
+</head>
+<body>
+<div class="wrapper h-100 d-flex flex-column justify-content-center">
+    <div class="h-100 d-flex flex-lg-row flex-column justify-content-center align-items-center py-5 gap-3">
+        <!-- 日期 -->
+        <div class="date-body mx-5">
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="date-scale"></div>
+            <div class="year"></div>
+            <div class="month"></div>
+            <div class="day"></div>
+        </div>
+        <!-- 時間 -->
+        <div class="clock-body mx-5">
+            <!-- 刻度 -->
+            <div class="clock-scale">
+                <div class="star"></div>
+            </div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale">
+                <div class="star"></div>
+            </div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale">
+                <div class="star"></div>
+            </div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale">
+                <div class="star"></div>
+            </div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale">
+                <div class="star"></div>
+            </div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale">
+                <div class="star"></div>
+            </div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <div class="clock-scale"></div>
+            <!-- 秒針 -->
+            <div class="second-body">
+                <div class="second-line"></div>
+                <div class="center-point"></div>
+            </div>
+            <!-- 分針(拆開是為了圖層) -->
+            <div class="minute-body"></div>
+            <div class="minute-line"></div>
+            <!-- 時針 -->
+            <div class="hour-body">
+                <div class="hour-line"></div>
+            </div>
+        </div>
+        <!-- 修改時間按鈕 -->
+        <div class="edit-div align-self-end">
+            <button type="button" id="edit" class="btn" data-bs-target="#setClockModal" data-bs-toggle="modal">
+                <i class="fa-solid fa-pen-to-square fs-1"></i>
+            </button>
+        </div>
+    </div>
+    <!-- modal -->
+    <div class="modal fade" id="setClockModal" tabindex="-1" aria-labelledby="setClockModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">時間調整</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex gap-2">
+                        <input type="number" id="hour" class="form-control" max="23" min="0" inputmode="numeric">
+                        <label for="hour" class="d-flex align-self-end">時</label>
+                        <input type="number" id="minute" class="form-control" max="59" min="0" inputmode="numeric">
+                        <label for="minute" class="d-flex align-self-end">分</label>
+                        <input type="number" id="second" class="form-control" max="59" min="0" inputmode="numeric">
+                        <label for="second" class="d-flex align-self-end">秒</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm modal-btn btn-secondary" data-bs-dismiss="modal">&emsp;<i class="fa-solid fa-xmark fa-color"></i>&emsp;</button>
+                    <button type="button" class="btn btn-sm modal-btn btn-primary" id="setBtn">&emsp;<i class="fa-solid fa-check fa-color"></i>&emsp;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,412 @@
+/*時鐘本體*/
+.clock-body {
+    width: var(--clock-width);
+    height: var(--clock-height);
+    background-color: var(--background-color);
+    border-radius: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 8rem;
+}
+
+/*時鐘刻度*/
+.clock-scale {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1px;
+    height: var(--clock-scale-height);
+    background-color: transparent;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        border-radius: 6px;
+        background-color: var(--clock-color);
+        z-index: 18;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        border-radius: 6px;
+        background-color: var(--clock-color);
+        z-index: 18;
+    }
+    .star {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 1px;
+        height: 100%;
+        background-color: transparent;
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50% 50% 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            background-color: var(--clock-color);
+            z-index: 18;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50% 50% 0;
+            -webkit-transform:  rotate(225deg);
+            -ms-transform:  rotate(225deg);
+            transform:  rotate(225deg);
+            background-color: var(--clock-color);
+            z-index: 18;
+        }
+    }
+}
+
+/*時鐘刻度角度*/
+.clock-scale:nth-child(2) {
+    -webkit-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    transform: rotate(6deg);
+}
+.clock-scale:nth-child(3) {
+    -webkit-transform: rotate(12deg);
+    -ms-transform: rotate(12deg);
+    transform: rotate(12deg);
+}
+.clock-scale:nth-child(4) {
+    -webkit-transform: rotate(18deg);
+    -ms-transform: rotate(18deg);
+    transform: rotate(18deg);
+}
+.clock-scale:nth-child(5) {
+    -webkit-transform: rotate(24deg);
+    -ms-transform: rotate(24deg);
+    transform: rotate(24deg);
+}
+.clock-scale:nth-child(6) {
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+.clock-scale:nth-child(7) {
+    -webkit-transform: rotate(36deg);
+    -ms-transform: rotate(36deg);
+    transform: rotate(36deg);
+}
+.clock-scale:nth-child(8) {
+    -webkit-transform: rotate(42deg);
+    -ms-transform: rotate(42deg);
+    transform: rotate(42deg);
+}
+.clock-scale:nth-child(9) {
+    -webkit-transform: rotate(48deg);
+    -ms-transform: rotate(48deg);
+    transform: rotate(48deg);
+}
+.clock-scale:nth-child(10) {
+    -webkit-transform: rotate(54deg);
+    -ms-transform: rotate(54deg);
+    transform: rotate(54deg);
+}
+.clock-scale:nth-child(11) {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+.clock-scale:nth-child(12) {
+    -webkit-transform: rotate(66deg);
+    -ms-transform: rotate(66deg);
+    transform: rotate(66deg);
+}
+.clock-scale:nth-child(13) {
+    -webkit-transform: rotate(72deg);
+    -ms-transform: rotate(72deg);
+    transform: rotate(72deg);
+}
+.clock-scale:nth-child(14) {
+    -webkit-transform: rotate(78deg);
+    -ms-transform: rotate(78deg);
+    transform: rotate(78deg);
+}
+.clock-scale:nth-child(15) {
+    -webkit-transform: rotate(84deg);
+    -ms-transform: rotate(84deg);
+    transform: rotate(84deg);
+}
+.clock-scale:nth-child(16) {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.clock-scale:nth-child(17) {
+    -webkit-transform: rotate(96deg);
+    -ms-transform: rotate(96deg);
+    transform: rotate(96deg);
+}
+.clock-scale:nth-child(18) {
+    -webkit-transform: rotate(102deg);
+    -ms-transform: rotate(102deg);
+    transform: rotate(102deg);
+}
+.clock-scale:nth-child(19) {
+    -webkit-transform: rotate(108deg);
+    -ms-transform: rotate(108deg);
+    transform: rotate(108deg);
+}
+.clock-scale:nth-child(20) {
+    -webkit-transform: rotate(114deg);
+    -ms-transform: rotate(114deg);
+    transform: rotate(114deg);
+}
+.clock-scale:nth-child(21) {
+    -webkit-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+.clock-scale:nth-child(22) {
+    -webkit-transform: rotate(126deg);
+    -ms-transform: rotate(126deg);
+    transform: rotate(126deg);
+}
+.clock-scale:nth-child(23) {
+    -webkit-transform: rotate(132deg);
+    -ms-transform: rotate(132deg);
+    transform: rotate(132deg);
+}
+.clock-scale:nth-child(24) {
+    -webkit-transform: rotate(138deg);
+    -ms-transform: rotate(138deg);
+    transform: rotate(138deg);
+}
+.clock-scale:nth-child(25) {
+    -webkit-transform: rotate(144deg);
+    -ms-transform: rotate(144deg);
+    transform: rotate(144deg);
+}
+.clock-scale:nth-child(26) {
+    -webkit-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+.clock-scale:nth-child(27) {
+    -webkit-transform: rotate(156deg);
+    -ms-transform: rotate(156deg);
+    transform: rotate(156deg);
+}
+.clock-scale:nth-child(28) {
+    -webkit-transform: rotate(162deg);
+    -ms-transform: rotate(162deg);
+    transform: rotate(162deg);
+}
+.clock-scale:nth-child(29) {
+    -webkit-transform: rotate(168deg);
+    -ms-transform: rotate(168deg);
+    transform: rotate(168deg);
+}
+.clock-scale:nth-child(30) {
+    -webkit-transform: rotate(174deg);
+    -ms-transform: rotate(174deg);
+    transform: rotate(174deg);
+}
+
+/*秒針*/
+.second-body {
+    position: relative;
+    width: var(--clock-width);
+    height: var(--clock-height);
+    border: var(--clock-color) solid 0.6rem;
+    border-radius: 5%;
+    z-index: 20;
+    &.second-animate {
+        -webkit-animation: around_s 60s infinite linear;
+        animation: around_s 60s infinite linear;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border: 0.5rem solid var(--clock-color);
+        border-radius: 100%;
+        z-index: 30;
+    }
+    .second-line {
+        position: absolute;
+        width: 0.6rem;
+        -webkit-transform: rotate(-45deg) translate(-50%, 0);
+        -ms-transform: rotate(-45deg) translate(-50%, 0);
+        transform: rotate(-45deg) translate(-50%, 0);
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+        height: var(--second-line-height);
+        border: 0.15rem solid var(--clock-color);
+        border-radius: 0.15rem;
+        background-color: var(--background-color);
+        z-index: 22;
+    }
+}
+/*分針-本體(正三角形)*/
+.minute-body {
+    position: absolute;
+    top: var(--tangle-top);
+    left: var(--tangle-left);
+    width: 0;
+    height: 0;
+    border-left: var(--tangle-height) solid transparent;
+    border-right: var(--tangle-height) solid transparent;
+    border-bottom: var(--tangle-bottom) solid var(--clock-color);
+    -webkit-transform-origin: 50% var(--minute-line-height);
+    -ms-transform-origin: 50% var(--minute-line-height);
+    transform-origin: 50% var(--minute-line-height);
+    z-index: 10;
+    &.minute-animate {
+        -webkit-animation: around_m 3600s infinite linear;
+        animation: around_m 3600s infinite linear;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 1.2rem;
+        border-left: var(--tangle-in-height) solid transparent;
+        border-right: var(--tangle-in-height) solid transparent;
+        border-bottom: var(--tangle-in-bottom) solid var(--background-color);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        z-index: 12;
+    }
+}
+/*分針指針(分開是為了圖層)*/
+.minute-line {
+    position: absolute;
+    width: 0.6rem;
+    left: calc(50% - 0.3rem);
+    top: calc(var(--tangle-top) + 0.635rem);
+    height: calc(var(--minute-line-height) - 0.635rem);
+    -webkit-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    border: 0.15rem solid var(--clock-color);
+    border-top: 1rem solid var(--clock-color);
+    border-radius: 0.15rem;
+    background-color: var(--background-color);
+    z-index: 16;
+    &.minute-animate {
+        -webkit-animation: around_m 3600s infinite linear;
+        animation: around_m 3600s infinite linear;
+    }
+}
+/*時針*/
+.hour-body {
+    position: absolute;
+    top: var(--hour-top);
+    left: var(--hour-left);
+    width: var(--hour-width);
+    height: var(--hour-width);
+    border: var(--clock-color) solid 0.6rem;
+    border-radius: 100%;
+    z-index: 13;
+    &.hour-animate {
+        -webkit-animation: around_h 43200s infinite linear;
+        animation: around_h 43200s infinite linear;
+    }
+    .hour-line {
+        position: absolute;
+        width: 0.6rem;
+        height: var(--hour-line-height);
+        border: 0.15rem solid var(--clock-color);
+        border-bottom-right-radius: 0.15rem;
+        border-bottom-left-radius: 0.15rem;
+        background-color: var(--background-color);
+        z-index: 14;
+        left: var(--hour-line-left);
+    }
+}
+
+/*平滑動畫*/
+@-webkit-keyframes around_s {
+    from {
+        -webkit-transform: rotate(var(--second-animate-start));
+        transform: rotate(var(--second-animate-start));
+    }
+    to {
+        -webkit-transform: rotate(var(--second-animate-end));
+        transform: rotate(var(--second-animate-end));
+    }
+}
+@keyframes around_s {
+    from {
+        -webkit-transform: rotate(var(--second-animate-start));
+        transform: rotate(var(--second-animate-start));
+    }
+    to {
+        -webkit-transform: rotate(var(--second-animate-end));
+        transform: rotate(var(--second-animate-end));
+    }
+}
+@-webkit-keyframes around_m {
+    from {
+        -webkit-transform: rotate(var(--minute-animate-start));
+        transform: rotate(var(--minute-animate-start));
+    }
+    to {
+        -webkit-transform: rotate(var(--minute-animate-end));
+        transform: rotate(var(--minute-animate-end));
+    }
+}
+@keyframes around_m {
+    from {
+        -webkit-transform: rotate(var(--minute-animate-start));
+        transform: rotate(var(--minute-animate-start));
+    }
+    to {
+        -webkit-transform: rotate(var(--minute-animate-end));
+        transform: rotate(var(--minute-animate-end));
+    }
+}
+@-webkit-keyframes around_h {
+    from {
+        -webkit-transform: rotate(var(--hour-animate-start));
+        transform: rotate(var(--hour-animate-start));
+    }
+    to {
+        -webkit-transform: rotate(var(--hour-animate-end));
+        transform: rotate(var(--hour-animate-end));
+    }
+}
+@keyframes around_h {
+    from {
+        -webkit-transform: rotate(var(--hour-animate-start));
+        transform: rotate(var(--hour-animate-start));
+    }
+    to {
+        -webkit-transform: rotate(var(--hour-animate-end));
+        transform: rotate(var(--hour-animate-end));
+    }
+}
